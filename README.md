@@ -1,4 +1,4 @@
-# phantomjs http2pdf: html to pdf web server
+# http2pdf phantomjs: html to pdf web server
 a phantomjs web server which converts websites into pdf documents
 
 example usage:
