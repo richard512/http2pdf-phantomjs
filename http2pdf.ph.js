@@ -28,9 +28,11 @@ var service = server.listen(8080, function(request, response) {
 
 	page.open(requrl, function(status) {
 		if (status=='success'){
-			page.render(filename);
-			response.write(fs.read(filename, 'b'));
-			response.close();
+			window.setTimeout(function(){
+				page.render(filename);
+				response.write(fs.read(filename, 'b'));
+				response.close();
+			}, 6000);
 		} else {
 			console.log('Error: page.open status = '+status)
 			response.write('error');
