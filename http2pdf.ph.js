@@ -18,7 +18,7 @@ var service = server.listen(8080, function(request, response) {
 
 	console.log(JSON.stringify(request));
 
-	if (!requrl || !requrl.match('https?://.*')) {
+	if (!requrl || !requrl.match('http://.*')) {
 		response.close();
 		return;
 	}
@@ -37,7 +37,6 @@ var service = server.listen(8080, function(request, response) {
 			console.log('Error: page.open status = '+status)
 			response.write('error');
 			response.close();
-			return;
 		}
 	});
 });
