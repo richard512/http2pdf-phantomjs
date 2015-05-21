@@ -12,17 +12,15 @@ function gup( name, url ) {
 }
 
 var service = server.listen(8080, function(request, response) {
-	var page = require('webpage').create();
-
-	requrl = gup('url', request.url);
-
 	console.log(JSON.stringify(request));
 
+	requrl = gup('url', request.url);
 	if (!requrl || !requrl.match('http://.*')) {
 		response.close();
 		return;
 	}
-
+	
+	var page = require('webpage').create();
 	response.statusCode = 200;
 	response.setEncoding('binary');
 	response.setHeader('Content-Type', 'application/pdf');
